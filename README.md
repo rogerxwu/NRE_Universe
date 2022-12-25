@@ -10,3 +10,6 @@ Youtube Channel https://www.youtube.com/@nre_universe
 1.4 Add Palo Alto device image
 1.5 Add Cisco device image
 
+
+## Sources
+1. Network MOP's as automated workflows: https://www.ansible.com/blog/network-mops-as-automated-workflows
