@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage('Display python version') {
+            steps {
+                sh 'python3 --version'
+            }
+        }
+
+        stage('Run the scritp') {
+            steps {
+                sh 'python3 hello.py'
+            }
+        }
+    }
+}
