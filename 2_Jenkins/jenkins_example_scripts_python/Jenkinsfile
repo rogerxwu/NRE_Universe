@@ -1,13 +1,26 @@
+/* Test the python script and ansible playbook */
 pipeline {
     agent any
     stages {
-        stage('Display python version') {
+        // Build the agent environment
+        stage('Build') {
+            agent {
+                docker {
+                    image 'python:3-alpine' 
+                }
+                steps {
+                    sh 'pip install virtualenv'
+                }
+            }
+        }
+        // Verify
+        stage('Verify') {
             steps {
                 sh 'python3 --version'
             }
         }
-
-        stage('Run the scritp') {
+        // Run script
+        stage('Run the cmd') {
             steps {
                 sh 'python3 hello.py'
             }
