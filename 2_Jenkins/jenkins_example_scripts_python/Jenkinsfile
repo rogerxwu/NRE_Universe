@@ -22,7 +22,7 @@ pipeline {
                 sh 'pip install -r ./2_Jenkins/jenkins_example_scripts_python/requirements.txt'
             }
         }
-        stage('Run the cmd') {
+        stage('run ansible') {
             steps {
                 sh 'ansible --version'
                 sh 'python3 ./2_Jenkins/jenkins_example_scripts_python/hello.py'
