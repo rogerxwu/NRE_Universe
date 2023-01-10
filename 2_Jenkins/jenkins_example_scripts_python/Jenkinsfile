@@ -20,12 +20,12 @@ pipeline {
                 sh 'python3 -m virtualenv venv'
                 sh """. venv/bin/activate
                 pip install -r ./2_Jenkins/jenkins_example_scripts_python/requirements.txt
+                ansible --version
                 """
             }
         }
         stage('run ansible') {
             steps {
-                sh 'ansible --version'
                 sh 'python3 ./2_Jenkins/jenkins_example_scripts_python/hello.py'
             }
         }
