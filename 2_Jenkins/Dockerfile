@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts-jdk11
 
 USER root
-RUN apt-get update && apt-get install -y python3
+RUN apt update && upgrade
+RUN apt-get install -y python3 && pip

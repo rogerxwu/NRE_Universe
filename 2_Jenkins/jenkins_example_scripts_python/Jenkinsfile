@@ -18,8 +18,14 @@ pipeline {
         stage('Run the cmd') {
             steps {
                 sh 'python3 -m virtualenv venv'
-                sh 'source /venv/bin/activate'
-                sh 'pip install -r requirements.txt'
+                sh 'source venv/bin/activate'
+                sh 'pip install -r ./2_Jenkins/jenkins_example_scripts_python/requirements.txt'
+            }
+        }
+        stage('Run the cmd') {
+            steps {
+                sh 'ansible --version'
+                sh 'python3 ./2_Jenkins/jenkins_example_scripts_python/hello.py'
             }
         }
     }
