@@ -18,8 +18,9 @@ pipeline {
         stage('Run the cmd') {
             steps {
                 sh 'python3 -m virtualenv venv'
-                sh 'source venv/bin/activate'
-                sh 'pip install -r ./2_Jenkins/jenkins_example_scripts_python/requirements.txt'
+                sh """. venv/bin/activate
+                pip install -r ./2_Jenkins/jenkins_example_scripts_python/requirements.txt
+                """
             }
         }
         stage('run ansible') {
