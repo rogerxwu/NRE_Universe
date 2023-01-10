@@ -4,13 +4,8 @@ pipeline {
     stages {
         // Build the agent environment
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:3-alpine' 
-                }
-                steps {
-                    sh 'pip install virtualenv'
-                }
+            steps {
+                sh 'pip install virtualenv'
             }
         }
         // Verify
@@ -22,7 +17,9 @@ pipeline {
         // Run script
         stage('Run the cmd') {
             steps {
-                sh 'python3 hello.py'
+                sh 'python3 -m virtualenv venv'
+                sh 'source /venv/bin/activate'
+                sh 'pip install -r requirements.txt'
             }
         }
     }
